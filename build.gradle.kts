@@ -20,11 +20,10 @@ dependencies {
     implementation("io.quarkus:quarkus-smallrye-graphql")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.quarkus:quarkus-arc")
-    implementation("io.quarkus:quarkus-liquibase")
     implementation("io.quarkus:quarkus-jdbc-postgresql")
     implementation("io.quarkus:quarkus-reactive-pg-client")
+    implementation("org.liquibase:liquibase-core:4.19.0")
     testImplementation("io.quarkus:quarkus-junit5")
-
 }
 
 group = "com.example"
