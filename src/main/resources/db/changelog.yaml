@@ -42,3 +42,19 @@ databaseChangeLog:
                   type: text
                   constraints:
                     nullable: false
+  - changeSet:
+      id: 3
+      author: lorefnon
+      changes:
+        - addColumn:
+            tableName: notebook
+            columns:
+              - column:
+                  name: creator_id
+                  type: int
+        - addForeignKeyConstraint:
+            constraintName: fk_notebook__creator_id
+            baseTableName: notebook
+            baseColumnNames: creator_id
+            referencedTableName: app_user
+            referencedColumnNames: id

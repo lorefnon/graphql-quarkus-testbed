@@ -9,7 +9,6 @@ import org.eclipse.microprofile.graphql.Query
 class AppUserResource {
 
     @Query
-    @Description("Say hello")
     fun appUserByName(name: String) =
         AppUser.findByName(name)
 }
