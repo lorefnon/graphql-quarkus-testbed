@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: lorefnon
+      changes:
+        - createTable:
+            tableName: app_user
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(300)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: lorefnon
+      changes:
+        - createTable:
+            tableName: notebook
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(300)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: text
+                  constraints:
+                    nullable: false
