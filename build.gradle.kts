@@ -1,3 +1,4 @@
+
 plugins {
     kotlin("jvm") version "1.7.22"
     kotlin("plugin.allopen") version "1.7.22"
@@ -15,15 +16,17 @@ val quarkusPlatformVersion: String by project
 
 dependencies {
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
+    implementation("io.quarkiverse.jooq:quarkus-jooq:0.4.0")
     implementation("io.quarkus:quarkus-kotlin")
+    implementation("io.quarkus:quarkus-agroal")
     implementation("io.quarkus:quarkus-hibernate-reactive-panache-kotlin")
     implementation("io.quarkus:quarkus-smallrye-graphql")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-jdbc-postgresql")
-    implementation("io.quarkus:quarkus-reactive-pg-client")
     implementation("org.liquibase:liquibase-core:4.19.0")
     testImplementation("io.quarkus:quarkus-junit5")
+    implementation("org.jooq:jooq-codegen:3.18.0-SNAPSHOT")
 }
 
 group = "com.example"
@@ -46,4 +49,9 @@ allOpen {
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
     kotlinOptions.javaParameters = true
+}
+
+tasks.register<JavaExec>("jooqCodegen") {
+    mainClass.set("com.example.util.JooqCodegenKt")
+    classpath = sourceSets["main"].runtimeClasspath
 }
