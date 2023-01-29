@@ -1,5 +1,6 @@
 
 plugins {
+    java
     kotlin("jvm") version "1.7.22"
     kotlin("plugin.allopen") version "1.7.22"
     id("io.quarkus")
@@ -26,7 +27,7 @@ dependencies {
     implementation("io.quarkus:quarkus-jdbc-postgresql")
     implementation("org.liquibase:liquibase-core:4.19.0")
     testImplementation("io.quarkus:quarkus-junit5")
-    implementation("org.jooq:jooq-codegen:3.18.0-SNAPSHOT")
+    implementation("org.jooq:jooq-codegen:3.17.7")
 }
 
 group = "com.example"
