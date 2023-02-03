@@ -17,6 +17,7 @@ val quarkusPlatformVersion: String by project
 
 dependencies {
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
+    implementation("org.jboss.slf4j:slf4j-jboss-logmanager")
     implementation("io.quarkiverse.jooq:quarkus-jooq:0.4.0")
     implementation("io.quarkus:quarkus-kotlin")
     implementation("io.quarkus:quarkus-agroal")
@@ -28,6 +29,7 @@ dependencies {
     implementation("org.liquibase:liquibase-core:4.19.0")
     testImplementation("io.quarkus:quarkus-junit5")
     implementation("org.jooq:jooq-codegen:3.17.7")
+    implementation("com.graphql-java:java-dataloader:3.1.0")
 }
 
 group = "com.example"
